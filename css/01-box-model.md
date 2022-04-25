@@ -47,7 +47,7 @@
   - We can set margin and padding values to the left and right side of it.
   - We can't set padding value to top and bottom of it.
   - Setting Width and Height Property on it doesn't work.
-  - Ex- <span></span> , <img/> , <a></a>
+  - Ex- span , img , anchor tag
 
 - **Inline-Block**
 
