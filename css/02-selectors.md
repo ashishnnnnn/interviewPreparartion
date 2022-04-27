@@ -51,3 +51,39 @@ color: blue;
 - The general sibling selector selects all elements that are next siblings of a specified element.
 
 - The following example selects all <p> elements that are next siblings of <div> elements:
+
+## Nth-child, Nth-last-child
+
+- :nth-child(n) will select the nth sibiling of the element it used with.
+
+- n can be a number, a keyword (odd or even), or a formula (like an + b).
+
+- "/_ Selects the second element of div siblings _/
+  div:nth-child(2) {
+  background: red;
+  }
+
+  /_ Selects the second li element in a list _/
+  li:nth-child(2) {
+  background: lightgreen;
+  }"
+
+- Odd and even are keywords that can be used to match child elements whose index is odd or even (the index of the first child is 1).
+
+  "p:nth-child(odd) {
+  background: red;
+  }
+
+  p:nth-child(even) {
+  background: lightgreen;
+  }"
+
+- **nth-last-child**
+
+  - This will select every nth last child of it's type.
+
+  - Specify a background color for every <p> element that is the second child of its parent, counting from the last child:
+
+  - "p:nth-last-child(2) {
+    background: red;
+    }"
