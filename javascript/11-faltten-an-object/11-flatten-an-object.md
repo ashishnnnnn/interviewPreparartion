@@ -1,5 +1,7 @@
 # Flatten an object -
 
+- flatten an object
+
 ```js
 const flatten_an_object = (object, is_key, ret_obj = {}) => {
   for (let key in object) {
