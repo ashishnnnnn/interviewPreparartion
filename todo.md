@@ -1,6 +1,6 @@
 - What is cache? (done)
 - Can u give some examples of caching? (done)
-- How can you acheive Infinte scroll in react?
+- How can you acheive Infinte scroll in react? (https://stackblitz.com/edit/react-uv84pe?file=src%2FHome.js,src%2FApp.js)
 - web storage (done)
 - JSON.stringify and JSON.parse, where and why do we use them? (done)
 - difference between slice and splice
