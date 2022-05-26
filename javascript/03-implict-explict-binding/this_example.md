@@ -94,3 +94,5 @@ obj.e();
 ```
 
 Output - undefined , error .
+
+- Blog To Revise - https://blog.tusharcodes.tech/5-rules-to-master-this-in-javascript
