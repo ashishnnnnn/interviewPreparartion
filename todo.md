@@ -13,3 +13,9 @@
 - controlled and uncontoalled component in react.
 
 - when to use class component and when to use functional component.
+
+- Uncontrolled and contolled component
+
+- Iffe uses
+
+- Slice and Splice .
