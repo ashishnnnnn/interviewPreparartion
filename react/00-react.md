@@ -7,3 +7,6 @@
 - An SPA (Single-page application) is a web app implementation that loads only a single web document, and then updates the body content of that single document via JavaScript APIs Such as Fetch.
 
 - This therefore allows users to use websites without loading whole new pages from the server, which can result in performance gains and a more dynamic experience
+
+## Code splitting
+https://www.youtube.com/watch?v=-4fyyyQjsz8

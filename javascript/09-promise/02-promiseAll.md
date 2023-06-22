@@ -56,3 +56,24 @@ myPromiseAll(array_of_promise).then((data) => {
   data.forEach((val) => console.log(val));
 });
 ```
+
+
+```js
+function PromiseAll(promises){
+    return new Promise(function(resolve,reject){
+        let retArray = []
+        let completed = 0;
+        promises.forEach(function(ele,idx){
+            ele.then(function(data){
+                retArray[idx] = data;
+                completed+=1;
+                if(completed===promises.length){
+                    resolve(retArray)
+                }
+            }).catch((err)=>{
+                reject(err)
+            })
+        });
+    })
+}
+```

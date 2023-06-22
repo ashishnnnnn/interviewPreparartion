@@ -11,6 +11,25 @@
 # Hositing
 
 - So when the javascript starts running the code , it moves the function defination and variables at the top of the scope and this is called hositing.
+- For variable only scoping will take place but not value will be assigned , but for function both scoping and it's full body will be assigned.
+
+Here's an example to illustrate the hoisting of a function declaration:
+```js
+sayHello();
+
+function sayHello() {
+  console.log('Hello!');
+}
+```
+In this example, the function sayHello() is called before it is declared. However, because of hoisting, the function declaration is moved to the top of the code, so the code actually runs like this:
+
+```js
+function sayHello() {
+  console.log('Hello!');
+}
+
+sayHello();
+```
 
 # Temporaral Dead Zone
 
@@ -45,3 +64,4 @@ function abc() {
 abc();
 // This will give us error saying b can't be accessed before defined
 ```
+

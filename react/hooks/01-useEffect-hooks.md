@@ -1,5 +1,7 @@
 -> The Effect Hook lets you perform side effects in function components:
 
+-> https://dmitripavlutin.com/react-useeffect-explanation/
+
 ```js
 import React, { useState, useEffect } from 'react';
 
@@ -119,3 +121,24 @@ export default function Counter() {
 
 -> Now when we don't cleanup, i have seen that number increase by two time , every second. Reason Not cleared yet.
 
+
+
+- https://codesandbox.io/s/beating-async-race-conditions-in-react-cleanupfn-45hlu?file=/src/DataDisplayer.js (Handle race around condition)
+
+```js
+useEffect(() => {
+    let isMounted = true;
+
+    fetchData().then(response => {
+      // Check if component is still mounted before updating state
+      if (isMounted) {
+        setData(response);
+      }
+    });
+
+    return () => {
+      // Cleanup function to handle unmounting
+      isMounted = false;
+    };
+  }, []);
+  ```

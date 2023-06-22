@@ -15,3 +15,8 @@
 - **So Higher Order Component is a pattern or a function where a function takes one component as an argumnet and returns a new Component**
 
 - https://codesandbox.io/s/unruffled-mclaren-ut3ono?file=/src/styles.css
+
+
+- https://codesandbox.io/s/busy-hypatia-5gtkty?file=/src/Hoc.js (In functional Comp)
+
+- https://stackblitz.com/edit/react-ruvpwr?file=src%2FHoc.js (Hoc Ex - 1)

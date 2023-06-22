@@ -23,3 +23,6 @@ const sum = function (first, second) {
 # Anonymous Function.
 
 - Function without having a proper name is called Anonymous function. It is majorly used in function expression and callback to a function.
+
+
+When to use IFFE

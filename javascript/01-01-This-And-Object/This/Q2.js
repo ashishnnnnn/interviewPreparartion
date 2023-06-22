@@ -11,7 +11,7 @@ let user = {
     }
 }
 
-console.log(user.getDetails())
+user.getDetails()
 
 console.log(user.getDetails1())
 

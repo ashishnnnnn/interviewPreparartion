@@ -56,15 +56,15 @@ const child = document.querySelector(".child")
 
 //  With using event bubbling , create such that when we click of child, first parent will be called , then child and then grandParent
 
-// grandParent.addEventListener("click",function(){
-//     alert("grandParent")
-// },{capture:false})
+grandParent.addEventListener("click",function(){
+    alert("grandParent")
+},{capture:false})
 
-// parent.addEventListener("click",function(){
-//     alert("parent")
-// },{capture:true})
+parent.addEventListener("click",function(){
+    alert("parent")
+},{capture:true})
 
-// child.addEventListener("click",function(){
-//     alert("child")
-// },{capture:false})
+child.addEventListener("click",function(){
+    alert("child")
+},{capture:false})
 
