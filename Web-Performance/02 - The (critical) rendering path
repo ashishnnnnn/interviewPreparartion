@@ -1,0 +1,59 @@
+## The (critical) rendering path
+
+- Progressive rendering is the way browsers load and display web pages bit by bit as resources become available, unlike native apps, which are fully downloaded and installed before being run.
+
+__Browsers aim to balance two things:__
+    - Rendering too early: Showing content as soon as basic HTML is available, but without CSS or JavaScript, can cause a “flash” of unstyled or incomplete content that changes significantly later. This can feel broken to users.
+    - Waiting too long: Waiting for every resource to load before rendering anything leads to unnecessary delays, leaving users with a blank screen.
+
+Browsers determine which resources are essential for the initial render through a process called the __critical rendering path__. Optimizing this path ensures that pages render smoothly and quickly, giving users a good experience without unnecessary loading delays.
+
+
+
+The rendering path involves the following steps:
+
+- Constructing the Document Object Model (DOM) from the HTML.
+- Constructing the CSS Object Model (CSSOM) from the CSS.
+- Applying any JavaScript that alters the DOM or CSSOM.
+- Constructing the render tree from the DOM and CSSOM.
+- Perform style and layout operations on the page to see what elements fit where.
+- Paint the pixels of the elements in memory.
+- Composite the pixels if any of them overlap.
+- Physically draw all the resulting pixels to screen.
+
+## What resources are on the critical rendering path?
+The browser needs to wait for some critical resources to download before it can complete the initial render. These resources include:
+
+- Part of the HTML.
+- Render-blocking CSS in the <head> element.
+- Render-blocking JavaScript in the <head> element.
+
+## Importantly, for the initial render, the browser will not typically wait for:
+
+- All of the HTML.
+- Fonts.
+- Images.
+- Non-render-blocking JavaScript outside of the <head> element (for example, <script> elements placed at the end of the HTML).
+- Non-render-blocking CSS outside of the <head> element, or CSS with a media attribute value that does not apply to the current viewport.
+
+
+The <head> element is crucial for setting up the critical rendering path in web performance. It contains metadata and resource links (like CSS and JavaScript) essential for defining how the page should look, though it doesn't include visible content itself—that's in the <body>.
+
+The browser doesn’t wait for all <head> resources to load, just the necessary ones to prevent an incomplete display. Optimizing the <head> by understanding which CSS and JavaScript resources are render-blocking or parser-blocking can significantly improve page load speed.
+
+## Section
+
+When loading a webpage, the browser encounters certain render-blocking resources—resources that must be loaded before it can continue rendering the page. CSS is an example of a render-blocking resource because the browser needs it to style the page correctly.
+
+__How Render-Blocking Resources Work__
+When the browser encounters CSS (either inline or through an external <link>), it pauses rendering until the CSS is fully downloaded and processed. Initially, this meant that any discovered CSS would block rendering of the entire page. But now, browsers like Firefox and Chrome only block rendering for the content below the render-blocking resource, focusing primarily on resources within the <head> section since these typically affect the whole page layout.
+
+Chrome 105 introduced a helpful blocking=render attribute, allowing developers to specify that a <link>, <script>, or <style> element is render-blocking, so the parser can continue without waiting on the blocked element.
+
+__Parser-Blocking Resources__
+Parser-blocking resources stop the HTML parser from continuing until the resource is fully processed. By default, JavaScript behaves this way because it can alter the page’s HTML or CSS. To know the full effect of JavaScript on the page’s layout, the browser must wait until the script is fully executed. Unless marked with async or defer, synchronous JavaScript blocks the parser entirely.
+
+Since parser-blocking resources also prevent the parser from accessing or rendering any content beyond them, they are effectively render-blocking too. Any parser-blocking JavaScript in the <head> will hold up all subsequent content from rendering until the script is processed.
+
+__Performance Cost and Mitigation__
+Blocking the parser can significantly impact performance, sometimes more than simply blocking rendering. To mitigate this, browsers use a preload scanner that operates independently of the primary HTML parser. While the main parser waits for a blocking resource, the preload scanner can start downloading other resources, allowing networking to continue ahead of the parser, reducing the likelihood of future blocks.
