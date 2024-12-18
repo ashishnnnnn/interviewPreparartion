@@ -1,0 +1,26 @@
+.progressbar{
+    width: 440px;
+    height: 60px;
+    border-radius: 10px;
+    margin: 4px auto;
+    position: relative;
+    background-color: rgb(118, 196, 196);
+    overflow: hidden;
+    
+}
+
+.progressbar_fill{
+    height: 100%;
+    background-color: rgb(37, 218, 218);
+    border-radius: 10px;
+    transition: all 0.1s ease-in-out;
+}
+
+.quantity{
+    position: absolute;
+    font-size: 24px;
+    font-weight: 500;
+    top: 50%;
+    right: 5px;
+    transform: translate(0,-50%);
+}

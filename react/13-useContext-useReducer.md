@@ -4,6 +4,8 @@
 
 - createContext() is used to create the context , whereas useContext() will be used to consume the context in the child components.
 
+- Example 1 of counter - https://stackblitz.com/edit/vitejs-vite-itauar?file=src%2FApp.jsx,src%2FComponents%2FCounter.jsx,src%2FContext%2FCounterContext.jsx,src%2Fmain.jsx,src%2FApp.css&terminal=dev
+
 # useReducer -
 
 - useReducer is used to update the state in react, it is mainly used with useContext to update the values of context.

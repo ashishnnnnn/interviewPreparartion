@@ -1,0 +1,1 @@
+-> length property of function returns the number of argument it is expecting.

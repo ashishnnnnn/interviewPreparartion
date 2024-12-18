@@ -10,3 +10,7 @@
 
 ## Code splitting
 https://www.youtube.com/watch?v=-4fyyyQjsz8
+
+- React DOM creates the virtual library
+
+- React only responsible for diffing and imperative declaration

@@ -22,3 +22,9 @@ Recoincillation is the process by which react update the dom if there any change
 - https://robinpokorny.medium.com/index-as-a-key-is-an-anti-pattern-e0349aece318 (Why we should not use Index as key in react)
 
 - https://dev.to/shiv1998/why-not-to-use-index-as-key-in-react-lists-practical-example-3e66 (Why we should not use Index as key in react)
+
+
+# why not use key as index in react
+https://onlinegdb.com/jCa15mHaX (Abrupt behaviour)
+
+https://onlinegdb.com/-57zLtU0B (Performance issue - Re-rendering)

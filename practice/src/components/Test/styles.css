@@ -1,0 +1,82 @@
+/* Layout */
+.game-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 300px;
+    width: 100%;
+    position: relative;
+  }
+  
+  /* Bottle */
+  /* .bottle {
+    width: 80px;
+    height: 200px;
+    position: relative;
+    border-radius: 10px 10px 30px 30px;
+    background: #ddd;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column-reverse;
+    border: 2px solid #aaa;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .bottle.selected {
+    transform: scale(1.1);
+    border-color: #3498db;
+  }
+  
+  .liquid {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  
+  .liquid-layer {
+    width: 100%;
+    transition: height 0.5s ease;
+  } */
+
+  .bottle {
+    width: 60px;
+    height: 200px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 0 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .bottle.selected {
+    border-color: #ff6600;
+  }
+  
+  .liquid {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 100%;
+  }
+  
+  .liquid-layer {
+    width: 100%;
+  }
+  
+  
+  /* Stream */
+  .stream {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    background: linear-gradient(to bottom, #3498db, #2980b9);
+    border-radius: 2px;
+    transform-origin: top left;
+    display: none;
+    transition: all 0.5s ease;
+  }
+  

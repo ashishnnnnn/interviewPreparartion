@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        min-height: 90vh;
+        font-size: 14px;
+      }
+
+      td,
+      th {
+        padding: 5px 10px;
+        font-size: 14px;
+      }
+
+      p,
+      ul,
+      ol {
+        margin: 0;
+        margin-bottom: 2px;
+        font-size: 14px;
+      }
+
+      .print-per-page {
+        page-break-before: always;
+        padding: 0 30px;
+      }
+
+      .paddingTB10 {
+        padding: 10px 0;
+      }
+
+      .w20 {
+        width: 20%;
+      }
+
+      .borderBOn {
+        border-bottom: 1px solid #ccc;
+      }
+
+      .borderTOn {
+        border-top: 2px solid #000;
+      }
+
+      .marginB20 {
+        margin-bottom: 20px;
+      }
+
+      .marginB50 {
+        margin-bottom: 50px;
+      }
+
+      .tdPaddingTB10 td {
+        padding: 10px 0;
+      }
+
+      .paddingL15 {
+        padding-left: 15px;
+        margin-right: 170px;
+      }
+
+      .line-height-increase {
+        line-height: 1.5;
+      }
+
+      .marginT20 {
+        margin-top: 20px;
+      }
+
+      ​ .paddingT30 {
+        padding-top: 30px;
+      }
+
+      ​ .topHeader {
+        padding-left: 50px;
+        width: 100%;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .originalHead {
+        padding-right: 10%;
+        margin-top: -35px;
+      }
+
+      .original {
+        display: block;
+        padding-right: 10%;
+        border: 3px solid #000;
+        padding: 6px;
+        width: 120px;
+        margin-left: auto;
+        font-size: 14px;
+        text-transform: uppercase;
+      }
+
+      .headingTop {
+        font-size: 14px;
+        text-transform: uppercase;
+        line-height: 1.5em;
+      }
+
+      .headingCenter {
+        letter-spacing: 7px;
+      }
+
+      .borderB3-On {
+        border-bottom: 2px solid #000;
+      }
+
+      .noMarginB {
+        margin-bottom: 0;
+      }
+
+      .marginTB5 {
+        margin: 0.5% 0;
+      }
+
+      .borderB-On {
+        border-bottom: 1px solid #000;
+      }
+
+      .minW80 {
+        min-width: 80%;
+      }
+
+      .w100 {
+        width: 100%;
+      }
+
+      .vertcallyT {
+        vertical-align: top;
+      }
+
+      .noMargin {
+        margin: 0;
+      }
+
+      .colon {
+        padding-left: 10px !important;
+        position: relative;
+      }
+
+      .colon::before {
+        content: "\003A";
+        position: absolute;
+        left: 0;
+      }
+
+      .checkbox {
+        padding-left: 10px !important;
+        position: relative;
+      }
+
+      .checkbox::before {
+        content: "\2713";
+        position: absolute;
+        left: 0;
+      }
+
+      .paddingTB5 {
+        padding: 0.5% 0;
+      }
+
+      .noPadding {
+        padding: 0;
+      }
+
+      .w80 {
+        width: 80%;
+      }
+
+      .w40 {
+        width: 40%;
+      }
+
+      .floatR {
+        float: right;
+      }
+
+      .w10 {
+        width: 10px;
+      }
+
+      .w5 {
+        width: 5%;
+      }
+
+      .w50 {
+        width: 50%;
+      }
+
+      .text-right {
+        text-align: right;
+      }
+
+      li {
+        padding: 5px 0;
+      }
+
+      .list-style-none {
+        list-style-type: none !important;
+      }
+
+      .list-lower-alpha {
+        list-style-type: lower-alpha;
+      }
+
+      .list-upper-alpha {
+        list-style-type: upper-alpha;
+      }
+
+      .list-lower-roman {
+        list-style-type: lower-roman;
+      }
+
+      .w100 {
+        width: 100%;
+      }
+
+      .no-padding {
+        padding: 0;
+      }
+
+      .padding30 {
+        padding: 30px;
+      }
+
+      .borderOn {
+        border: 1px solid #000;
+      }
+
+      .margin-left-auto {
+        margin-left: auto;
+      }
+
+      .w30 {
+        width: 30%;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      .positionR {
+        position: relative;
+        min-height: 1350px;
+      }
+
+      .postionA {
+        position: absolute;
+        left: 0;
+        right: 0;
+        text-align: center;
+        bottom: 20px;
+      }
+
+      .box {
+        padding: 20px;
+        border: 1px solid #000;
+        display: inline-block;
+      }
+
+      .bold {
+        font-weight: 900;
+      }
+
+      .less-padding > li {
+        padding: 2px;
+      }
+
+      p {
+        margin-bottom: 2px;
+      }
+
+      .tble-bdr {
+        border: 1px solid black;
+      }
+
+      .tble-bdr-btm {
+        border-bottom: 1px solid black;
+      }
+
+      .tble-bdr-left {
+        border-left: 1px solid black;
+      }
+
+      .tble-bdr-right {
+        border-right: 1px solid black;
+      }
+
+      .tble-head {
+        padding: 12px;
+      }
+
+      .ol-with-gap li {
+        margin-bottom: 25px;
+      }
+
+      .vT {
+        vertical-align: baseline;
+      }
+
+      .uniform-padding {
+        padding: 5px 10px;
+      }
+
+      .no-margin {
+        margin: 0;
+      }
+
+      .horizontal-bar {
+        width: 99%;
+        height: 4px;
+        background-color: black;
+      }
+
+      .horizontal-bar1 {
+        width: 99%;
+        height: 2px;
+        background-color: black;
+      }
+
+      .horizontal-bar-0 {
+        width: 100px;
+        height: 1px;
+        background-color: black;
+      }
+
+      .horizontal-bar-2 {
+        width: 100px;
+        height: 2px;
+        background-color: black;
+      }
+
+      .margin-left {
+        margin-left: 20px;
+      }
+
+      .margin-left-40 {
+        margin-left: 40px;
+      }
+
+      .black-circle {
+        list-style-type: disc;
+        color: black;
+        padding-left: 20px;
+      }
+
+      /* .dash::before{
+            content: '\2013'; 
+            color: black;
+            margin-right: 8px;
+        } */
+      .dash1 {
+        margin: 0 4px 4px 0;
+        height: 2px;
+        width: 8px;
+        background-color: #000;
+        display: inline-block;
+      }
+
+      table.bordered {
+        border-collapse: collapse;
+        border: 2px solid #ccc;
+      }
+
+      table.bordered tr td {
+        padding: 8px;
+      }
+
+      table.bordered tr th {
+        padding: 8px;
+      }
+
+      .bold {
+        font-weight: bold;
+      }
+
+      .top-logo-image-page-top-left-2 {
+        margin-left: 21px;
+        height: 100px;
+        background-repeat: no-repeat;
+        background-image: url(https://storage.googleapis.com/pp_img/tap_insure_icon.png);
+        background-size: contain;
+        background-position: left;
+      }
+
+      .top-logo-image-page-right {
+        background-image: url(https://storage.googleapis.com/pp_img/footer_tap_travel.png);
+        background-size: contain;
+        background-position: bottom;
+        background-repeat: no-repeat;
+        /* margin-top: 20px;
+            margin-right: 10px; */
+        height: 105px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      style="padding: 60px 50px; box-sizing: border-box"
+      class="print-per-page positionR"
+    >
+      <div class="top-logo-image-page-top-left-2"></div>
+      <table class="w100">
+        <tbody>
+          <tr>
+            <td>
+              <h4 class="uniform-padding no-margin bold">
+                  
+                SERTIFIKAT ASURANSI Personal Accident NO. {{policy_number[15:35]}}
+                <br />
+                POLIS INDUK NO: 11011062400002
+              </h4>
+              <p class="uniform-padding">
+                Sertifikat ini merupakan bagian tak terpisahkan dari Polis Induk
+                yang disebutkan di bawah ini dan merupakan ringkasan dari obyek
+                yang dipertanggungkan.<br />
+                Persyaratan Polis Induk ini berlaku untuk obyek yang
+                dipertanggungkan di bawah ini :
+              </p>
+              <p class="horizontal-bar" style="margin: 0px 10px"></p>
+              <h4 class="no-margin uniform-padding bold">TERTANGGUNG</h4>
+              <table class="w100 margin-left">
+                <tbody>
+                  <tr>
+                    <td style="width: 40%">NAMA</td>
+                    <td style="width: 60%" class="colon">
+                      <span class="toogle-off" data-att="normalAttribute-1">
+                        {{name}}
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width: 40%">NO. ORDER</td>
+                    <td style="width: 60%" class="colon">
+                      <span class="toogle-off" data-att="normalAttribute-2">
+                        {{reference_id}}
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width: 40%">NOMOR HANDPHONE</td>
+                    <td style="width: 60%" class="colon">
+                      <span class="toogle-off" data-att="normalAttribute-3">
+                        {{phone_no}}
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width: 40%">ALAMAT EMAIL</td>
+                    <td style="width: 60%" class="colon">
+                      <span class="toogle-off" data-att="normalAttribute-3">
+                        {{email}}
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <h4 class="no-margin uniform-padding bold">
+                PERTANGGUNGAN ASURANSI
+              </h4>
+              <table class="w100 margin-left">
+                <tbody>
+                  <tr>
+                    <td style="width: 40%">Periode Pertanggungan</td>
+                    <td style="width: 60%" class="colon">
+                      <span class="toogle-off" data-att="normalAttribute-1"
+                        >Mulai dari {{coverage_start_datetime}} sampai dengan penumpang tiba di tujuan
+                        sesuai yang tertera pada aplikasi</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width: 40%">Deductible / Risiko Sendiri</td>
+                    <td style="width: 60%" class="colon">
+                      <span class="toogle-off" data-att="normalAttribute-1"
+                        >NIL</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width: 40%">Nilai Pertanggungan</td>
+                    <td style="width: 60%" class="colon">
+                      <span
+                        class="toogle-off"
+                        data-att="normalAttribute-1"
+                      ></span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <br />
+              <table class="w100 margin-left">
+                <tbody>
+                  <tr>
+                    <td style="width: 60%">Death due to Accident</td>
+                    <td style="width: 40%" class="colon">
+                      <span class="toogle-off" data-att="normalAttribute-1"
+                        >IDR 350.000.000,-</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width: 60%">
+                      Total & Partial Permanent Disability due to Accident
+                    </td>
+                    <td style="width: 40%" class="colon">
+                      <span class="toogle-off" data-att="normalAttribute-1"
+                        >IDR 350.000.000,-</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width: 60%">Medical Expenses</td>
+                    <td style="width: 40%" class="colon">
+                      <span class="toogle-off" data-att="normalAttribute-1"
+                        >IDR 35.000.000,-</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width: 60%">
+                      Loss of Personal Items due to Theft/ Robbery Compensation
+                    </td>
+                    <td style="width: 40%" class="colon">
+                      <span class="toogle-off" data-att="normalAttribute-1"
+                        >IDR 1.000.000,-</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width: 60%">Bereavement Compensation</td>
+                    <td style="width: 40%" class="colon">
+                      <span class="toogle-off" data-att="normalAttribute-1"
+                        >IDR 1.000.000,-</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width: 60%">Hospital Cash Plan</td>
+                    <td style="width: 40%" class="colon">
+                      <span class="toogle-off" data-att="normalAttribute-1"
+                        >IDR 500.000,-</span
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <br />
+              <br />
+              <br />
+              <table class="w100 margin-left">
+                <tbody>
+                  <tr>
+                    <td style="width: 40%">Klausula</td>
+                    <td style="width: 60%" class="colon">
+                      <span class="toogle-off" data-att="normalAttribute-1"
+                        >Klausula Perluasan</span
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <table class="w100 margin-left-40">
+                <tbody>
+                  <tr>
+                    <td style="width: 40%"></td>
+                    <td style="width: 60%">
+                      <span class="toogle-off" data-att="normalAttribute-1"
+                        >- Pemberitahuan Pembatalan 30 hari</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width: 40%"></td>
+                    <td style="width: 60%">
+                      <span class="toogle-off" data-att="normalAttribute-1"
+                        >- Pemberitahuan Klaim 30 hari</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width: 40%"></td>
+                    <td style="width: 60%">
+                      <span class="toogle-off" data-att="normalAttribute-1"
+                        >- Coronavirus Exclusion Clause (LMA-5391)</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width: 40%"></td>
+                    <td style="width: 60%">
+                      <span class="toogle-off" data-att="normalAttribute-1"
+                        >- Klausula tunjangan kehilangan barang pribadi akibat
+                        perampokan</span
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="width: 40%"></td>
+                    <td style="width: 60%">
+                      <span class="toogle-off" data-att="normalAttribute-1"
+                        >- Klausula biaya pengobatan akibat kecelakaan</span
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <br />
+              <br />
+              <br />
+              <p>
+                CATATAN : Dengan Kesaksian Yang Bertanda Tangan di bawah ini
+                yang diberi wewenang sepatutnya oleh Penanggung dan atas nama
+                Penanggung telah membubuhkan tanda tangannya
+              </p>
+              <br />
+              <br />
+              <br />
+              <table class="w100">
+                <tbody>
+                  <tr>
+                    <td><b>Tertanggal</b> : {{created_date_in_bahasa}}</td>
+                    <td style="text-align: right">JAKARTA, {{created_date_in_bahasa}}</td>
+                  </tr>
+                  <tr style="text-align: right">
+                    <td></td>
+                    <td>PT ASURANSI UNTUK SEMUA</td>
+                  </tr>
+                  <tr style="text-align: right">
+                    <td></td>
+                    <td style="width: 20%;">
+                        <img src="https://storage.googleapis.com/pp_img/sicepat/signature.png" width="300" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="top-logo-image-page-right"></div>
+    </div>
+  </body>
+</html>

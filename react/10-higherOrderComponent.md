@@ -20,3 +20,10 @@
 - https://codesandbox.io/s/busy-hypatia-5gtkty?file=/src/Hoc.js (In functional Comp)
 
 - https://stackblitz.com/edit/react-ruvpwr?file=src%2FHoc.js (Hoc Ex - 1)
+
+
+# Composition in React 
+- https://stackblitz.com/edit/vitejs-vite-7mzers?file=src%2FApp.jsx&terminal=dev
+
+# Higher order Comp
+- https://stackblitz.com/edit/vitejs-vite-xtat82?file=src%2FApp.jsx&terminal=dev

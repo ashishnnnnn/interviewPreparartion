@@ -26,15 +26,15 @@ const child = document.querySelector(".child")
 
 //  we can replace event.currentTarget by this
 
-// grandParent.addEventListener("click",func)
+grandParent.addEventListener("click",func)
 
-// parent.addEventListener("click",func)
+parent.addEventListener("click",func)
 
-// child.addEventListener("click",func)
+child.addEventListener("click",func)
 
-// function func(event){
-//     alert("currentTarget = "+event.currentTarget.innerText +" target "+event.target.innerText)
-// }
+function func(event){
+    alert("currentTarget = "+event.currentTarget.innerText +" target "+event.target.innerText)
+}
 
 // Part - 3
 
@@ -56,15 +56,15 @@ const child = document.querySelector(".child")
 
 //  With using event bubbling , create such that when we click of child, first parent will be called , then child and then grandParent
 
-grandParent.addEventListener("click",function(){
-    alert("grandParent")
-},{capture:false})
+// grandParent.addEventListener("click",function(){
+//     alert("grandParent")
+// },{capture:false})
 
-parent.addEventListener("click",function(){
-    alert("parent")
-},{capture:true})
+// parent.addEventListener("click",function(){
+//     alert("parent")
+// },{capture:true})
 
-child.addEventListener("click",function(){
-    alert("child")
-},{capture:false})
+// child.addEventListener("click",function(){
+//     alert("child")
+// },{capture:false})
 

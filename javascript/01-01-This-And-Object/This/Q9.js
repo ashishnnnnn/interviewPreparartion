@@ -7,6 +7,7 @@ function callback(){
 const object = {
     length:5,
     method(){
+        console.log(arguments)
         arguments[0]();
     }
 }

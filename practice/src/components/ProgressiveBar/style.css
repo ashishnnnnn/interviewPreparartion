@@ -1,0 +1,25 @@
+.progressBar{
+    width: 450px;
+    height: 60px;
+    margin: 4px auto;
+    position: relative;
+    border-radius: 10px;
+    background-color: rgb(85, 160, 160);
+}
+
+.progressBarFill{
+    width: 0%;
+    height: 100%;
+    background-color: rgb(44, 205, 205);
+    border-radius: 10px;
+    transition: all 0.1s ease-in-out;
+}
+
+.percentage{
+    font-size: 24px;
+    font-weight: 500;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(0.-50%);
+}

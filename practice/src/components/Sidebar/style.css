@@ -1,0 +1,54 @@
+p,div{
+    margin: 0 ;
+    padding: 0 ;
+}
+
+.sideBarContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.child{
+    margin-left: 16px !important;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+} 
+
+.sideBarContainer .wrapper{
+    margin-left: 12px;
+}
+
+
+
+.dot{
+    height: 4px;
+    width: 4px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.text{
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.arrow{
+    font-size: 28px;
+}
+
+.open{
+    transform: rotate(90deg);
+}
+
+.expandable{
+    cursor: pointer;
+    margin: 0 !important;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}

@@ -1,0 +1,46 @@
+.game-container{
+    margin: 0 auto;
+    border: 1px solid black;
+    width: fit-content;
+}
+
+.digitsContainer{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-items: center;
+    padding: 10px;
+    gap: 16px;
+}
+
+.digitsContainer .keys{
+    width: 100px;
+    height: 100px;
+    border: 1px solid;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.digitsContainer .keys:hover{
+   background-color: rgb(209, 126, 90) !important;
+}
+
+.form{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form input{
+    height: 30px;
+    width: 100px;
+}
+
+.form button{
+    background-color: rgb(0, 179, 255);
+    cursor: pointer;
+}

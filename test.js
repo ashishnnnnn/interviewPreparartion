@@ -1,158 +1,67 @@
-// let array = [1,2,3,4,5]
-
-// // const newArray = array.filter((ele)=>ele%2===0)
-
-// // const sum = array.reduce((accum,curr)=>accum+=curr,0)
-
-// Array.prototype.my_reduce = function(cb,intial_value){
-//     const currArray = this;
-//     let accumulator = intial_value;
-//     for(let i=0;i<currArray.length;i++){
-//         if(accumulator){
-//             accumulator = cb(accumulator,this[i],i,this)
-//         }
-//         else{
-//             accumulator = this[i]
-//         }
-//     }
-//     return accumulator
-// }
-
-// Array.prototype.my_call = function(cb){
-//     const currArray = this;
-//     let returnArray = [];
-//     currArray.forEach((ele)=>{
-//         returnArray.push(cb(ele))
-//     })
-//     return returnArray;
-// }
-
-// const sum = array.my_reduce((accum,curr)=>accum+=curr,0)
-
-// const hello = array.my_call((ele)=>ele*2)
-
-// console.log("hello",hello)
+// please complete the implementation
+class EventEmitter {
+  constructor(){
+    this.map = new Map()
+  }
+  subscribe(eventName, callback) {
+    if(this.map.has(eventName)){
 
 
-
-// const base = (a)=>(b)=>(a+b)
-
-// const addSix = base(6)
-
-// console.log(addSix(10))
-
-
-// const calledOnce = ()=>{
-//     let ifCalled =false;
-//     return function(){
-//         if(ifCalled){
-//             return "Already Called"
-//         }
-//         else{
-//             ifCalled = true;
-//             return "Subscribed"
-//         }
-//     }
-// }
-
-// const subScribe = calledOnce();
-// console.log(subScribe())
-// console.log(subScribe())
-// console.log(subScribe())
-
-// const fakeFetch = (value, delay, isreject) => {
-//     return new Promise((resolve, reject) => {
-//         setTimeout(() => {
-//             if (isreject) {
-//                 reject("Reject Hoogaya Kya kare");
-//             } else {
-//                 resolve(value);
-//             }
-//         }, delay * 1000);
-//     });
-// };
-
-// const promiseAll = (promiseArray) => {
-//     return new Promise((resolve, reject) => {
-//         let retArray = [];
-//         let completed = 0;
-//         promiseArray.forEach(async (ele, idx) => {
-//             try {
-//                 let result = await Promise.resolve(ele);
-//                 retArray[idx] = result;
-//                 completed += 1;
-//                 if (completed === promiseArray.length) {
-//                     resolve(retArray)
-//                 }
-//             }
-//             catch (e) {
-//                 reject("Error came")
-//             }
-//         });
-//     })
-// }
-
-// let array_of_promise = [
-//     fakeFetch("nancy", 4, false),
-//     fakeFetch("Ashish", 1, false),
-//     3,
-//     4,
-//     5,
-// ];
-
-// promiseAll(array_of_promise).then((data) => {
-//     data.forEach((val) => console.log(val));
-// });
-
-// console.log("start")
-
-// const sub = Promise.resolve("Ashish kumar");
-// sub.then((res)=>{
-//     console.log(res)
-// })
-
-// console.log("end")
-
-
-// function flattenAnObject(obj, pre_key, retObj = {}) {
-//     for (let key in obj) {
-//         let newKey = pre_key ? pre_key + "_" + key : key;
-//         if (typeof obj[key] === "object") {
-//             flattenAnObject(obj[key], newKey, retObj)
-//         }
-//         else {
-//             retObj[newKey] = obj[key]
-//         }
-//     }
-//     return retObj;
-// }
-
-// let object = {
-//     name: "Ashish",
-//     address: {
-//         city: "Arrah",
-//         dist: "Bhojpur",
-//         detail:{
-//             landmark:"Bajaj_Showroom_Kai_Pass"
-//         }
-//     },
-// };
-
-// console.log(flattenAnObject(object));
-let obj = {
-    name: "Ashish",
-    city: "Arrah",
-    greet: function () {
-      console.log("Hello", this.name, "from", this.city);
-    },
-  };
+      let val = this.map.get(eventName);
+      val.push(callback);
+      this.map.set(eventName,val)
+    }
+    else{
+      this.map.set(eventName,[callback])
+    }
+    return {
+      release: ()=>{
+        const calls = this.map.get(eventName) || [];
+        console.log("calls",calls)
+        const filteredCall = calls.filter((ele)=>ele!==callback);
+        console.log("filteredCall",filteredCall)
+        if(filteredCall.length>0){
+          this.map.set(eventName, filteredCall);
+        }
+        else{
+          this.map.delete(eventName)
+        }
+      }
+    }
+  }
   
-  let obj1 = {
-    name: "Adithya",
-  };
-  
-  obj1.__proto__ = obj;
-  
-//   obj1.city; //Arrah
-  
-  obj1.greet(); // Hello Aditya From Arrah
+  emit(eventName, ...args) {
+  	let functS = this.map.get(eventName) || [];
+    functS.forEach(element => {
+      element(...args)
+    });
+  }
+
+
+}
+
+const emitter = new EventEmitter()
+
+function callback1(a,b){
+  console.log(a+b);
+}
+
+function callback2(a,b){
+  console.log(a*b)
+}
+
+const sub1  = emitter.subscribe('event1', callback1)
+const sub2 = emitter.subscribe('event2', callback2)
+// same callback could subscribe 
+// on same event multiple times
+const sub3 = emitter.subscribe('event1', callback2)
+
+
+// callback1 will be called twice
+
+emitter.emit('event1', 8,9);
+
+sub1.release()
+sub2.release()
+
+emitter.emit('event1', 8,9);
